@@ -16,7 +16,26 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= PROGRESS BAR ================= */
+/* BACKGROUND ANIM */
+body::after {
+  content: "";
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(59,130,246,0.2), transparent);
+  top: -200px;
+  right: -200px;
+  filter: blur(120px);
+  animation: moveBg 10s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px,200px); }
+}
+
+/* PROGRESS BAR */
 #progressBar {
   position: fixed;
   top: 0;
@@ -27,36 +46,41 @@ body {
   z-index: 9999;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   background: radial-gradient(circle at top, #1e3a8a, #0b1220);
+  text-align: center;
 }
 
 .hero h1 {
   font-size: 60px;
-  margin: 0;
   color: white;
-  border-right: 3px solid #fbbf24;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 2.8s steps(20,end) forwards, blink 0.7s infinite;
 }
 
-/* ================= SECTION BASE ================= */
+.hero p {
+  color: #cbd5e1;
+}
+
+.cta a {
+  color: #fbbf24;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* SECTIONS */
 section {
-  padding: 120px 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
+  padding: 100px 20px;
   opacity: 0;
   transform: translateY(60px);
-  transition: 0.8s ease;
+  transition: 0.8s;
 }
 
 section.show {
@@ -64,92 +88,115 @@ section.show {
   transform: translateY(0);
 }
 
-/* ================= TITLES ================= */
 h2 {
-  font-size: 28px;
   color: #fbbf24;
   margin-bottom: 40px;
 }
 
-/* ================= SPLIT LAYOUT ================= */
+/* SPLIT */
 .split {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
-/* left / right blocks */
-.block {
-  width: 45%;
-  background: #111827;
-  padding: 25px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: 0.4s;
-  border-left: 4px solid #3b82f6;
-}
-
-.block:hover {
-  transform: scale(1.03);
-  border-left: 4px solid #fbbf24;
-}
-
-/* alternating effect */
 .split.reverse {
   flex-direction: row-reverse;
 }
 
-/* center line */
-.line {
-  position: absolute;
-  left: 50%;
-  width: 2px;
-  height: 100%;
+.block {
+  width: 45%;
+  background: #111827;
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.block:hover {
+  transform: scale(1.05);
+}
+
+/* PROJECT CARDS */
+.card {
+  background: #111827;
+  padding: 25px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
   background: #1e3a8a;
-  opacity: 0.4;
 }
 
-/* container */
-.wrapper {
-  position: relative;
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
 }
 
-/* ================= CONTACT ================= */
+.modal-content {
+  background: #111827;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+.modal-content span {
+  cursor: pointer;
+  float: right;
+  font-size: 22px;
+}
+
+/* SIGNATURE */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.grid div {
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.grid div:hover {
+  background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+/* CONTACT */
 .contact {
   text-align: center;
   background: #111827;
-  padding: 80px 20px;
+  padding: 60px;
   border-radius: 20px;
-  margin-top: 100px;
 }
 
 .contact p {
   color: #fbbf24;
 }
 
-/* ================= ANIM ================= */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
-/* responsive */
-@media (max-width: 800px) {
+/* RESPONSIVE */
+@media(max-width:800px){
   .split, .split.reverse {
     flex-direction: column;
   }
-
   .block {
     width: 100%;
-  }
-
-  .line {
-    display: none;
+    margin-bottom: 20px;
   }
 }
 
@@ -160,72 +207,71 @@ h2 {
 
 <div id="progressBar"></div>
 
+<!-- HERO -->
 <header class="hero">
-  <h1>Omar Abdul</h1>
+  <h1 id="typing"></h1>
   <p>Engineering student — Physics, mechanics & systems thinking</p>
+  <div class="cta">
+    <a href="#projects">See my work ↓</a>
+  </div>
 </header>
 
-<section class="wrapper">
-
+<!-- JOURNEY -->
+<section>
 <h2>My Journey</h2>
-<div class="line"></div>
 
 <div class="split">
-  <div class="block">
-    📉 Low motivation → average performance<br>
-    At the beginning I was not fully engaged.
-  </div>
-  <div class="block">
-    ⚡ CPGE turning point<br>
-    First real discipline experience.
-  </div>
+  <div class="block">Low motivation → average performance</div>
+  <div class="block">CPGE turning point → discipline</div>
 </div>
 
 <div class="split reverse">
-  <div class="block">
-    📈 Structured study habits<br>
-    Learned consistency under pressure.
-  </div>
-  <div class="block">
-    🎯 Academic direction<br>
-    Defined clear goals for future.
-  </div>
+  <div class="block">Structured study habits</div>
+  <div class="block">Clear academic direction</div>
 </div>
 
 </section>
 
-<section>
+<!-- PROJECTS -->
+<section id="projects">
 <h2>Projects</h2>
 
-<div class="split">
-  <div class="block">
-    Heat Sink Optimization (TIPE)
-  </div>
-  <div class="block">
-    Thermal simulation + experimental validation
-  </div>
-</div>
-
-<div class="split reverse">
-  <div class="block">
-    Mechanical Randomness
-  </div>
-  <div class="block">
-    Deterministic system behaving like randomness
-  </div>
-</div>
+<div class="card" onclick="openModal('p1')">Heat Sink Optimization</div>
+<div class="card" onclick="openModal('p2')">Mechanical Randomness System</div>
 
 </section>
 
+<!-- MODALS -->
+<div id="p1" class="modal">
+<div class="modal-content">
+<span onclick="closeModal('p1')">&times;</span>
+<h3>Heat Sink Optimization</h3>
+<p>Thermal study using simulation + real experiment (LED 10W).</p>
+</div>
+</div>
+
+<div id="p2" class="modal">
+<div class="modal-content">
+<span onclick="closeModal('p2')">&times;</span>
+<h3>Mechanical Randomness</h3>
+<p>Study of deterministic systems creating randomness illusion.</p>
+</div>
+</div>
+
+<!-- SIGNATURE -->
 <section>
-<h2>Beyond Engineering</h2>
+<h2>What Defines Me</h2>
 
-<div class="block" style="margin:auto; width:60%;">
-Gym • Reading in English • Discipline • Curiosity • Self improvement
+<div class="grid">
+<div>Discipline</div>
+<div>Adaptability</div>
+<div>Analytical Thinking</div>
+<div>Consistency</div>
 </div>
 
 </section>
 
+<!-- CONTACT -->
 <section class="contact">
 <h2>Contact</h2>
 <p>omar.abdul@ensam.eu</p>
@@ -233,26 +279,44 @@ Gym • Reading in English • Discipline • Curiosity • Self improvement
 
 <script>
 
-/* ================= SCROLL REVEAL ================= */
-const sections = document.querySelectorAll("section");
+/* TYPING */
+const text = "Omar Abdul";
+let i = 0;
 
+function type(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 80);
+  }
+}
+type();
+
+/* SCROLL REVEAL */
+const sections = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
   sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
       sec.classList.add("show");
     }
   });
 });
 
-/* ================= PROGRESS BAR ================= */
+/* PROGRESS BAR */
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-  document.getElementById("progressBar").style.width =
-    (scrollTop / scrollHeight) * 100 + "%";
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById("progressBar").style.width = (scrollTop/height)*100 + "%";
 });
+
+/* MODAL */
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display = "none";
+}
 
 </script>
 
