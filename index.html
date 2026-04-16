@@ -6,13 +6,15 @@
 <title>Portfolio</title>
 
 <style>
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    font-family: 'Arial', sans-serif;
+    background: #0b1220;
+    color: #e5e7eb;
   }
 
   /* NAV */
@@ -20,23 +22,24 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
-    gap: 25px;
-    padding: 12px;
+    gap: 30px;
+    padding: 14px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
   nav a {
-    color: white;
+    color: #cbd5e1;
     text-decoration: none;
     font-weight: bold;
-    opacity: 0.8;
+    transition: 0.3s;
   }
 
   nav a:hover {
-    opacity: 1;
     color: #38bdf8;
   }
 
@@ -48,74 +51,101 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at top, #1e293b, #0f172a);
-    padding: 20px;
+    background: radial-gradient(circle at top, #1e293b, #0b1220);
   }
 
   header img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    object-fit: cover;
     border: 3px solid #38bdf8;
+    object-fit: cover;
     margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(56,189,248,0.4);
   }
 
   header h1 {
-    font-size: 42px;
+    font-size: 44px;
     margin: 10px 0;
   }
 
   header p {
     font-size: 18px;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .btn {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: #38bdf8;
-    color: black;
-    border-radius: 8px;
-    text-decoration: none;
+    color: #0b1220;
+    border-radius: 10px;
     font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    background: #0ea5e9;
+    transform: scale(1.05);
   }
 
   /* SECTIONS */
   section {
     max-width: 900px;
     margin: auto;
-    padding: 80px 20px;
+    padding: 90px 20px;
   }
 
   h2 {
     color: #38bdf8;
-    margin-bottom: 20px;
     font-size: 28px;
+    margin-bottom: 20px;
   }
 
+  /* CARDS */
   .card {
-    background: #1e293b;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 20px;
-    border-radius: 12px;
     margin: 15px 0;
-    border-left: 4px solid #38bdf8;
+    border-radius: 14px;
+    transition: 0.3s;
   }
 
-  a {
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+  }
+
+  a.link {
     color: #38bdf8;
     text-decoration: none;
+    font-weight: bold;
   }
 
-  a:hover {
+  a.link:hover {
     text-decoration: underline;
+  }
+
+  /* GRID PROJECTS */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   footer {
     text-align: center;
     padding: 30px;
     background: #020617;
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0.7;
   }
 </style>
@@ -132,64 +162,64 @@
 </nav>
 
 <header>
-  <img src="https://via.placeholder.com/150" alt="profile">
+  <img src="https://via.placeholder.com/140" alt="profile">
   <h1>Your Name</h1>
-  <p>Engineering Student | Physics | Mechanical Systems</p>
-  <a class="btn" href="#about">Explore</a>
+  <p>Engineering Student | Physics | TIPE Projects</p>
+  <a class="btn" href="#projects">View My Work</a>
 </header>
 
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
     I am a motivated engineering student passionate about physics, mechanics and applied sciences.
-    I enjoy understanding how systems work and turning theory into real-world applications.
+    I enjoy solving problems, building models, and connecting theory with real-world systems.
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
 
-  <div class="card">
-    <strong>TIPE Project:</strong> Heat Sink Optimization<br>
-    Study of thermal dissipation in electronic components and improvement of energy efficiency.
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <strong>Mechanical System:</strong> Illusion of Randomness<br>
-    Analysis of deterministic systems that appear random due to physical complexity.
+    <div class="card">
+      <h3>🔥 TIPE Project</h3>
+      Heat Sink Optimization<br><br>
+      <a class="link" href="#documents">View report →</a>
+    </div>
+
+    <div class="card">
+      <h3>🎲 Mechanical System</h3>
+      Illusion of Randomness<br><br>
+      <a class="link" href="#documents">View report →</a>
+    </div>
+
   </div>
 </section>
 
 <section id="experience">
   <h2>Experience</h2>
 
-  <div class="card">
-    Retail Sales Assistant — customer interaction and communication skills
-  </div>
-
-  <div class="card">
-    Construction Worker — discipline, teamwork and endurance
-  </div>
-
-  <div class="card">
-    Private Tutor — teaching, responsibility and clarity in explanation
-  </div>
+  <div class="card">🛍 Retail Sales Assistant — communication & customer skills</div>
+  <div class="card">🏗 Construction Worker — discipline & teamwork</div>
+  <div class="card">📚 Private Tutor — teaching & responsibility</div>
 </section>
 
 <section id="documents">
   <h2>Documents</h2>
 
   <div class="card">
-    📄 <a href="ABDUL Omar TIPE.pdf" target="_blank">TIPE Report</a>
+    📄 <a class="link" href="ABDUL Omar TIPE.pdf" target="_blank">TIPE Report (PDF)</a>
   </div>
 
   <div class="card">
-    📄 <a href="Quels phénomènes permettent à un système entièrement mécanique.pdf" target="_blank">Mechanical Systems Report</a>
+    📄 <a class="link" href="Quels phénomènes permettent à un système entièrement mécanique.pdf" target="_blank">
+      Mechanical System Report (PDF)
+    </a>
   </div>
 </section>
 
 <footer>
-  © 2026 Portfolio — Engineering Student
+  Portfolio — Engineering Student — 2026
 </footer>
 
 </body>
