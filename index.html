@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Omar | Portfolio</title>
 
 <style>
 html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   background: #0a0a0a;
   color: #eae6df;
 }
@@ -20,11 +20,11 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10,10,10,0.6);
-  backdrop-filter: blur(20px);
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(18px);
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 25px;
   padding: 14px;
   z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -35,11 +35,10 @@ nav a {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 1px;
-  transition: 0.3s;
 }
 
 nav a:hover {
-  color: #ffffff;
+  color: white;
 }
 
 /* HERO */
@@ -51,89 +50,63 @@ header {
   align-items: center;
   text-align: center;
   background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
+  padding: 20px;
 }
 
 header img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 2px solid #d6c7a1;
-  box-shadow: 0 0 40px rgba(214,199,161,0.15);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px rgba(214,199,161,0.2);
 }
 
 header h1 {
-  font-size: 48px;
-  margin: 15px 0;
+  font-size: 44px;
+  margin: 10px 0;
   letter-spacing: 2px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.2s;
 }
 
 header p {
   opacity: 0.7;
-  font-size: 18px;
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.4s;
-}
-
-.btn {
-  margin-top: 25px;
-  padding: 12px 26px;
-  border: 1px solid #d6c7a1;
-  color: #d6c7a1;
-  text-decoration: none;
-  border-radius: 12px;
-  transition: 0.4s;
-  opacity: 0;
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.6s;
-}
-
-.btn:hover {
-  background: #d6c7a1;
-  color: #0a0a0a;
-  transform: scale(1.05);
 }
 
 /* SECTIONS */
 section {
   max-width: 900px;
   margin: auto;
-  padding: 100px 20px;
+  padding: 90px 20px;
 }
 
 h2 {
-  font-size: 26px;
-  letter-spacing: 2px;
   color: #d6c7a1;
   margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
 /* CARDS */
 .card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
-  padding: 22px;
+  padding: 20px;
   margin: 15px 0;
   border-radius: 14px;
-  transition: 0.5s;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+  transition: 0.4s;
 }
 
 .card:hover {
-  border-color: #d6c7a1;
   transform: translateY(-5px);
+  border-color: #d6c7a1;
+}
+
+/* ASIDES */
+.aside {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid #d6c7a1;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 /* LINKS */
@@ -153,14 +126,6 @@ footer {
   opacity: 0.5;
   font-size: 13px;
 }
-
-/* ANIMATION */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>
 
 </head>
@@ -169,72 +134,88 @@ footer {
 
 <nav>
   <a href="#about">ABOUT</a>
+  <a href="#experiences">EXPERIENCE</a>
   <a href="#projects">PROJECTS</a>
-  <a href="#experience">EXPERIENCE</a>
-  <a href="#documents">DOCUMENTS</a>
+  <a href="#extra">ACTIVITIES</a>
+  <a href="#contact">CONTACT</a>
 </nav>
 
 <header>
-  <img src="https://via.placeholder.com/150">
-  <h1>YOUR NAME</h1>
-  <p>Engineering Student | Physics | Applied Sciences</p>
-  <a class="btn" href="#about">ENTER</a>
+  <img src="https://via.placeholder.com/140">
+  <h1>Omar Abdul</h1>
+  <p>Engineering Student | Arts et Métiers Institute of Technology</p>
 </header>
 
 <section id="about">
-  <h2>ABOUT</h2>
-  <div class="card">
-    Engineering student passionate about physics, mechanics, and systems modeling.
-    I focus on understanding real-world systems through mathematical and experimental approaches.
+
+  <div class="aside">
+    👋 Welcome to my portfolio! Here you will find my projects, experiences and interests.
   </div>
+
+  <div class="aside">
+    💬 I am an engineering student passionate about physics, mechanics and applied sciences.
+    I enjoy solving problems, understanding systems and turning theory into practical applications.
+  </div>
+
+  <h2>WHO AM I?</h2>
+
+  <div class="card">
+    My name is Omar and I am currently studying in Châlons-en-Champagne at Arts et Métiers Institute of Technology.
+  </div>
+
+</section>
+
+<section id="experiences">
+
+  <h2>PROFESSIONAL EXPERIENCES</h2>
+
+  <div class="card">Retail Sales Assistant — communication & customer interaction</div>
+  <div class="card">Construction Worker — discipline, teamwork & resilience</div>
+  <div class="card">Private Tutor — teaching & responsibility</div>
+
 </section>
 
 <section id="projects">
-  <h2>PROJECTS</h2>
 
-  <div class="card">TIPE — Heat Sink Optimization (thermal efficiency analysis)</div>
-  <div class="card">Mechanical System — Deterministic randomness modeling</div>
-</section>
-
-<section id="experience">
-  <h2>EXPERIENCE</h2>
-
-  <div class="card">Retail Sales Assistant — communication & client interaction</div>
-  <div class="card">Construction Worker — discipline & physical resilience</div>
-  <div class="card">Private Tutor — teaching & responsibility</div>
-</section>
-
-<section id="documents">
-  <h2>DOCUMENTS</h2>
+  <h2>ACADEMIC & RESEARCH PROJECTS</h2>
 
   <div class="card">
-    <a href="ABDUL Omar TIPE.pdf" target="_blank">Download TIPE Report</a>
+    TIPE — Heat Sink Optimization<br>
+    Study of thermal dissipation and energy efficiency in electronic systems.
   </div>
 
   <div class="card">
-    <a href="Quels phénomènes permettent à un système entièrement mécanique.pdf" target="_blank">
-      Download Mechanical Study
-    </a>
+    Mechanical System — Illusion of Randomness<br>
+    Study of deterministic systems that appear random due to physical complexity.
   </div>
+
+</section>
+
+<section id="extra">
+
+  <h2>EXTRACURRICULAR INVOLVEMENT</h2>
+
+  <div class="card">
+    Interested in student associations, teamwork projects, and intercultural exchange.
+    I enjoy collaborating and sharing knowledge with others.
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <h2>CONTACT</h2>
+
+  <div class="card">
+    📧 Email: <a href="mailto:omar.abdul@ensam.eu">omar.abdul@ensam.eu</a><br><br>
+    🔗 LinkedIn: <a href="https://www.linkedin.com/in/omarabdul94/" target="_blank">My LinkedIn Profile</a>
+  </div>
+
 </section>
 
 <footer>
-  © 2026 — Portfolio
+  © 2026 Omar Abdul — Engineering Portfolio
 </footer>
-
-<script>
-const cards = document.querySelectorAll('.card');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
-
-cards.forEach(c => observer.observe(c));
-</script>
 
 </body>
 </html>
