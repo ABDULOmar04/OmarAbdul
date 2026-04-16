@@ -6,17 +6,17 @@
 
 <title>Omar Abdul — Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
 /* ===== BASE ===== */
 body {
   margin: 0;
-  font-family: "Source Sans 3", sans-serif;
-  background: #faf9f6;
-  color: #1f2937;
-  line-height: 1.8;
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.9;
 }
 
 /* PROGRESS BAR */
@@ -25,7 +25,7 @@ body {
   top: 0;
   left: 0;
   height: 3px;
-  background: #1d4ed8;
+  background: #000;
   width: 0%;
   z-index: 999;
 }
@@ -35,25 +35,26 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(250,249,246,0.85);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
-  gap: 35px;
+  gap: 40px;
   padding: 18px;
   border-bottom: 1px solid #eee;
+  z-index: 100;
 }
 
 nav a {
   text-decoration: none;
-  color: #6b7280;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  color: #777;
+  font-size: 13px;
+  letter-spacing: 1px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #1d4ed8;
+  color: #000;
 }
 
 /* HERO */
@@ -74,7 +75,7 @@ h1 {
 
 /* TYPING */
 .typing {
-  border-right: 2px solid #1d4ed8;
+  border-right: 2px solid black;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
@@ -86,63 +87,71 @@ h1 {
 }
 
 .subtitle {
-  margin-top: 20px;
-  color: #6b7280;
-  font-size: 17px;
+  margin-top: 15px;
+  color: #666;
+  font-size: 16px;
 }
 
 /* SECTIONS */
 section {
   max-width: 900px;
   margin: auto;
-  padding: 110px 20px;
+  padding: 120px 20px;
 }
 
 /* TITLES */
 h2 {
   font-family: "Playfair Display", serif;
   font-size: 38px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 /* CARDS */
 .card {
-  background: white;
-  border-radius: 12px;
-  padding: 28px;
-  margin-bottom: 25px;
-  border: 1px solid #eee;
-  transition: 0.3s;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: 0.35s;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 /* DROPDOWN */
 .content {
   max-height: 0;
   overflow: hidden;
-  transition: 0.4s;
+  transition: 0.4s ease;
+  margin-top: 10px;
 }
 
 .card.active .content {
-  max-height: 500px;
+  max-height: 400px;
 }
 
 /* IMAGE */
 img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  filter: grayscale(100%);
+  transition: 0.4s;
+}
+
+.card:hover img {
+  filter: grayscale(0%);
 }
 
 /* FADE */
 .fade {
   opacity: 0;
   transform: translateY(40px);
-  transition: 0.6s;
+  transition: 0.7s ease;
 }
 
 .fade.visible {
@@ -153,8 +162,9 @@ img {
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 50px;
-  color: #9ca3af;
+  padding: 60px;
+  color: #999;
+  font-size: 14px;
 }
 
 </style>
@@ -180,9 +190,10 @@ footer {
 </header>
 
 <section id="about" class="fade">
-<h2>About</h2>
+<h2>About Me</h2>
 <p>
-I am an engineering student specializing in mechanics and physics, with a strong interest in modeling, experimentation, and problem-solving.
+I am an engineering student passionate about mechanics, physics, and analytical problem-solving.
+My goal is to apply rigorous thinking to real-world engineering challenges.
 </p>
 </section>
 
@@ -191,12 +202,12 @@ I am an engineering student specializing in mechanics and physics, with a strong
 
 <div class="card">
 <h3>Arts et Métiers (ENSAM)</h3>
-<p>Engineering program — 2025–2028</p>
+<p>Engineering degree (2025–2028)</p>
 </div>
 
 <div class="card">
 <h3>CPGE PT / PT*</h3>
-<p>Intensive scientific preparation</p>
+<p>Intensive preparation in mathematics and physics</p>
 </div>
 
 </section>
@@ -208,7 +219,7 @@ I am an engineering student specializing in mechanics and physics, with a strong
 <img src="https://images.unsplash.com/photo-1581091870627-3c74b56d7f3a">
 <h3>Tensile Testing of Rope Splices</h3>
 <div class="content">
-<p>Mechanical testing and experimental analysis.</p>
+<p>Experimental testing, machining and mechanical analysis.</p>
 </div>
 </div>
 
@@ -216,7 +227,7 @@ I am an engineering student specializing in mechanics and physics, with a strong
 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
 <h3>Thermal Optimization</h3>
 <div class="content">
-<p>Simulation of thermal behavior and optimization.</p>
+<p>Simulation of heat transfer and data analysis using Python.</p>
 </div>
 </div>
 
@@ -232,7 +243,7 @@ I am an engineering student specializing in mechanics and physics, with a strong
 
 <div class="card">
 <h3>Construction Worker</h3>
-<p>Field work and logistics</p>
+<p>Teamwork and logistics</p>
 </div>
 
 </section>
