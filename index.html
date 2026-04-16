@@ -11,10 +11,10 @@ body {
   font-family: "Georgia", serif;
   background: linear-gradient(180deg, #f8fafc, #eef2ff);
   color: #111827;
-  line-height: 1.7;
+  overflow-x: hidden;
 }
 
-/* PROGRESS BAR */
+/* ================= PROGRESS BAR ================= */
 #progressBar {
   position: fixed;
   top: 0;
@@ -25,30 +25,23 @@ body {
   z-index: 9999;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
-  padding: 80px 20px 40px;
   text-align: center;
+  padding: 90px 20px 40px;
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
   color: white;
   border-radius: 0 0 25px 25px;
 }
 
-header img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #fbbf24;
-}
-
-/* TYPING */
+/* typing */
 h1 {
   font-size: 40px;
   border-right: 3px solid #fbbf24;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  margin: 10px auto;
+  margin: auto;
   animation: typing 2.5s steps(20,end) forwards, blink 0.7s infinite;
 }
 
@@ -56,7 +49,7 @@ h1 {
   color: #cbd5e1;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 nav {
   display: flex;
   justify-content: center;
@@ -74,47 +67,56 @@ nav a {
   font-weight: bold;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS (SCROLL REVEAL) ================= */
 section {
-  max-width: 850px;
+  max-width: 900px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
 }
 
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= TITLES ================= */
 h2 {
-  border-left: 4px solid #fbbf24;
+  border-left: 5px solid #fbbf24;
   padding-left: 10px;
   color: #1e3a8a;
 }
 
-/* ===== PROJECT CARDS ===== */
+/* ================= PROJECT CARDS ================= */
 .projects {
   display: grid;
-  gap: 15px;
+  gap: 20px;
 }
 
 .card {
   background: white;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 20px;
+  border-radius: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: translateY(-10px) rotateX(6deg) rotateY(-6deg) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  border-left: 5px solid #fbbf24;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
@@ -135,7 +137,7 @@ h2 {
   font-size: 20px;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 .contact {
   background: #0f172a;
   color: white;
@@ -143,7 +145,7 @@ h2 {
   border-radius: 12px;
 }
 
-/* ANIM */
+/* ================= ANIMATIONS ================= */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -165,7 +167,6 @@ h2 {
 <div id="progressBar"></div>
 
 <header>
-  <img src="https://via.placeholder.com/120">
   <h1>Omar Abdul</h1>
   <div class="subtitle">Engineering Student — Arts et Métiers</div>
 </header>
@@ -182,15 +183,15 @@ h2 {
 </section>
 
 <section id="projects">
-<h2>Projects (click me)</h2>
+<h2>Projects (click cards)</h2>
 
 <div class="projects">
 
-<div class="card" onclick="openModal('Heat Sink Optimization', 'Study of thermal dissipation using simulation and experiments. Result: +11°C efficiency gain.')">
+<div class="card" onclick="openModal('Heat Sink Optimization', 'Thermal simulation + experiments. Result: 11.3°C improvement.')">
 Heat Sink Optimization (TIPE)
 </div>
 
-<div class="card" onclick="openModal('Mechanical Randomness', 'Study of deterministic systems creating the illusion of randomness using physics models.')">
+<div class="card" onclick="openModal('Mechanical Randomness', 'Study of deterministic systems that behave like randomness.')">
 Mechanical Randomness Study
 </div>
 
@@ -206,36 +207,48 @@ Mechanical Randomness Study
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">✖</span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
+    <h3 id="title"></h3>
+    <p id="text"></p>
   </div>
 </div>
 
 <script>
 
-/* PROGRESS BAR */
+/* ================= SCROLL PROGRESS ================= */
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
   document.getElementById("progressBar").style.width =
     (scrollTop / scrollHeight) * 100 + "%";
 });
 
-/* MODAL */
+/* ================= SCROLL REVEAL ================= */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* ================= MODAL ================= */
 function openModal(title, text) {
   document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalText").innerText = text;
+  document.getElementById("title").innerText = title;
+  document.getElementById("text").innerText = text;
 }
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-/* CLOSE OUTSIDE CLICK */
-window.onclick = function(e) {
+window.onclick = e => {
   if (e.target.id === "modal") closeModal();
-}
+};
 
 </script>
 
