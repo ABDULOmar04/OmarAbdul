@@ -7,7 +7,7 @@
 
 <style>
 
-/* ===== BASE ===== */
+/* BASE */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -15,18 +15,7 @@ body {
   color: #1e293b;
 }
 
-/* ===== PROGRESS BAR ===== */
-#progressBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background: linear-gradient(90deg, #2563eb, #38bdf8);
-  z-index: 9999;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -47,117 +36,49 @@ body {
   font-size: 18px;
 }
 
-.cta a {
-  margin-top: 25px;
-  padding: 12px 24px;
-  background: #2563eb;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cta a:hover {
-  background: #1d4ed8;
-}
-
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section {
   max-width: 1100px;
   margin: auto;
   padding: 120px 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.6s;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 h2 {
   font-size: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   color: #1e3a8a;
 }
 
-/* ===== SPLIT ===== */
+/* SPLIT */
 .split {
   display: flex;
-  justify-content: space-between;
-  gap: 60px; /* IMPORTANT */
-  margin-bottom: 80px;
+  gap: 60px;
+  margin-bottom: 60px;
 }
 
 .split.reverse {
   flex-direction: row-reverse;
 }
 
-/* ===== BLOCKS ===== */
-.block, .card {
+/* BLOCK */
+.block {
   width: 48%;
   background: white;
   padding: 30px;
   border-radius: 20px;
-
-  /* spacing feel */
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-
-  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.block:hover, .card:hover {
-  transform: translateY(-8px);
-}
-
-/* ===== PROJECTS ===== */
+/* CARDS */
 .card {
-  cursor: pointer;
-  margin-bottom: 30px;
-}
-
-/* ===== MODAL ===== */
-.modal {
-  display: none;
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.3);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 500px;
-}
-
-.modal-content span {
-  float: right;
-  cursor: pointer;
-}
-
-/* ===== SIGNATURE ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 30px;
-}
-
-.grid div {
   background: white;
   padding: 30px;
   border-radius: 20px;
+  margin-bottom: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  text-align: center;
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact {
   text-align: center;
   background: #2563eb;
@@ -166,17 +87,13 @@ h2 {
   border-radius: 30px;
 }
 
-.contact p {
-  color: #e0f2fe;
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:800px){
   .split, .split.reverse {
     flex-direction: column;
   }
 
-  .block, .card {
+  .block {
     width: 100%;
   }
 }
@@ -186,68 +103,84 @@ h2 {
 
 <body>
 
-<div id="progressBar"></div>
-
 <!-- HERO -->
 <header class="hero">
-  <h1 id="typing"></h1>
+  <h1>Omar Abdul</h1>
   <p>Engineering student — disciplined, analytical, and curious</p>
-  <div class="cta">
-    <a href="#projects">Explore my work</a>
-  </div>
 </header>
 
-<!-- JOURNEY -->
+<!-- MY JOURNEY -->
 <section>
 <h2>My Journey</h2>
 
 <div class="split">
-  <div class="block">I started with low motivation and little direction.</div>
-  <div class="block">A teacher encouraged me to join CPGE.</div>
+  <div class="block">
+    At the beginning of my academic journey, I lacked motivation and direction.
+  </div>
+  <div class="block">
+    A turning point came when a teacher encouraged me to join CPGE.
+  </div>
 </div>
 
 <div class="split reverse">
-  <div class="block">I developed discipline and consistency.</div>
-  <div class="block">I defined clear academic and professional goals.</div>
+  <div class="block">
+    I developed discipline and learned how to work consistently under pressure.
+  </div>
+  <div class="block">
+    This experience helped me define my academic and professional goals.
+  </div>
 </div>
 
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section>
 <h2>Projects</h2>
 
-<div class="card" onclick="openModal('p1')">Heat Sink Optimization</div>
-<div class="card" onclick="openModal('p2')">Mechanical Randomness System</div>
+<div class="card">
+  <strong>Heat Sink Optimization</strong><br>
+  Study of thermal dissipation using simulation and experimental validation.
+</div>
+
+<div class="card">
+  <strong>Mechanical Systems & Randomness</strong><br>
+  Analysis of deterministic systems creating the illusion of randomness.
+</div>
 
 </section>
 
-<!-- MODALS -->
-<div id="p1" class="modal">
-<div class="modal-content">
-<span onclick="closeModal('p1')">&times;</span>
-<h3>Heat Sink Optimization</h3>
-<p>Thermal simulation + experiment using a 10W LED.</p>
-</div>
-</div>
-
-<div id="p2" class="modal">
-<div class="modal-content">
-<span onclick="closeModal('p2')">&times;</span>
-<h3>Mechanical Randomness</h3>
-<p>Study of deterministic systems creating randomness illusion.</p>
-</div>
-</div>
-
-<!-- SIGNATURE -->
+<!-- PROFESSIONAL EXPERIENCE -->
 <section>
-<h2>What Defines Me</h2>
+<h2>Professional Experience</h2>
 
-<div class="grid">
-<div>Discipline</div>
-<div>Adaptability</div>
-<div>Analytical Thinking</div>
-<div>Consistency</div>
+<div class="card">
+  Retail Sales Assistant — developed communication and adaptability skills.
+</div>
+
+<div class="card">
+  Construction Worker — teamwork, discipline, and responsibility.
+</div>
+
+<div class="card">
+  Private Tutor — teaching and organization skills.
+</div>
+
+</section>
+
+<!-- PERSONAL LIFE -->
+<section>
+<h2>Personal Interests</h2>
+
+<div class="card">
+  I regularly go to the gym, which helps me stay disciplined and focused.
+</div>
+
+<div class="card">
+  I enjoy reading in English to improve my language skills and stay curious.
+</div>
+
+<div class="card">
+  I like driving, as it gives me a sense of freedom and independence.
 </div>
 
 </section>
@@ -257,47 +190,6 @@ h2 {
 <h2>Contact</h2>
 <p>omar.abdul@ensam.eu</p>
 </section>
-
-<script>
-
-/* typing */
-const text = "Omar Abdul";
-let i = 0;
-function type(){
-  if(i < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 70);
-  }
-}
-type();
-
-/* scroll reveal */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* progress bar */
-window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById("progressBar").style.width = (scrollTop/height)*100 + "%";
-});
-
-/* modal */
-function openModal(id){
-  document.getElementById(id).style.display = "flex";
-}
-function closeModal(id){
-  document.getElementById(id).style.display = "none";
-}
-
-</script>
 
 </body>
 </html>
