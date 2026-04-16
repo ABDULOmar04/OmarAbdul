@@ -33,49 +33,67 @@ body {
 
 .hero p {
   color: #64748b;
-  font-size: 18px;
 }
 
 /* SECTIONS */
 section {
   max-width: 1100px;
   margin: auto;
-  padding: 120px 20px;
+  padding: 100px 20px;
 }
 
 h2 {
-  font-size: 30px;
-  margin-bottom: 50px;
   color: #1e3a8a;
+  margin-bottom: 40px;
 }
 
-/* SPLIT */
-.split {
+/* PROJECT CARDS */
+.project {
   display: flex;
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.split.reverse {
-  flex-direction: row-reverse;
-}
-
-/* BLOCK */
-.block {
-  width: 48%;
+  gap: 30px;
+  margin-bottom: 50px;
   background: white;
-  padding: 30px;
   border-radius: 20px;
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* CARDS */
+.project img {
+  width: 300px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 25px;
+}
+
+.project-content h3 {
+  margin-top: 0;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+/* EXPERIENCE */
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 /* CONTACT */
@@ -83,17 +101,17 @@ h2 {
   text-align: center;
   background: #2563eb;
   color: white;
-  padding: 80px;
-  border-radius: 30px;
+  padding: 60px;
+  border-radius: 20px;
 }
 
 /* RESPONSIVE */
 @media(max-width:800px){
-  .split, .split.reverse {
+  .project {
     flex-direction: column;
   }
 
-  .block {
+  .project img {
     width: 100%;
   }
 }
@@ -106,81 +124,101 @@ h2 {
 <!-- HERO -->
 <header class="hero">
   <h1>Omar Abdul</h1>
-  <p>Engineering student — disciplined, analytical, and curious</p>
+  <p>Engineering student — discipline, consistency, and analytical thinking</p>
 </header>
-
-<!-- MY JOURNEY -->
-<section>
-<h2>My Journey</h2>
-
-<div class="split">
-  <div class="block">
-    At the beginning of my academic journey, I lacked motivation and direction.
-  </div>
-  <div class="block">
-    A turning point came when a teacher encouraged me to join CPGE.
-  </div>
-</div>
-
-<div class="split reverse">
-  <div class="block">
-    I developed discipline and learned how to work consistently under pressure.
-  </div>
-  <div class="block">
-    This experience helped me define my academic and professional goals.
-  </div>
-</div>
-
-</section>
 
 <!-- PROJECTS -->
 <section>
 <h2>Projects</h2>
 
-<div class="card">
-  <strong>Heat Sink Optimization</strong><br>
-  Study of thermal dissipation using simulation and experimental validation.
+<!-- FAB PROJECT -->
+<div class="project">
+  <img src="https://images.unsplash.com/photo-1581091870622-3c8eaa0f0b6f">
+  <div class="project-content">
+    <h3>Tensile Testing of Rope Splices</h3>
+    <p>
+    Conducted tensile tests to determine breaking limits of rope splices.
+    Designed and machined precise gripping systems to ensure reliable measurements.
+    Coordinated experimental work with external partners.
+    </p>
+
+    <!-- MET TON PDF ICI -->
+    <a href="TON_PDF.pdf" class="btn" target="_blank">View Project</a>
+  </div>
 </div>
 
-<div class="card">
-  <strong>Mechanical Systems & Randomness</strong><br>
-  Analysis of deterministic systems creating the illusion of randomness.
+<!-- THERMAL PROJECT -->
+<div class="project">
+  <img src="https://images.unsplash.com/photo-1581092919534-3e6c0f3b42c3">
+  <div class="project-content">
+    <h3>Thermal Optimization of Components</h3>
+    <p>
+    Simulated heat transfer in electronic systems using conduction and convection models.
+    Developed Python scripts to analyze and visualize thermal data.
+    </p>
+
+    <a href="#" class="btn">View Details</a>
+  </div>
+</div>
+
+<!-- RANDOMNESS PROJECT -->
+<div class="project">
+  <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc">
+  <div class="project-content">
+    <h3>Mechanical Randomness Analysis</h3>
+    <p>
+    Studied how deterministic systems can create randomness.
+    Modified a mechanical wheel and performed statistical analysis of outcomes.
+    Built Python simulations to compare theoretical and experimental results.
+    </p>
+
+    <!-- MET TON DIAPO ICI -->
+    <a href="TON_DIAPO.pdf" class="btn" target="_blank">View Project</a>
+  </div>
 </div>
 
 </section>
 
-<!-- PROFESSIONAL EXPERIENCE -->
+<!-- EXPERIENCE -->
 <section>
 <h2>Professional Experience</h2>
 
 <div class="card">
-  Retail Sales Assistant — developed communication and adaptability skills.
+<strong>Private Tutor (2022 – Present)</strong><br>
+Personalized support, pedagogy, and student progress monitoring.
 </div>
 
 <div class="card">
-  Construction Worker — teamwork, discipline, and responsibility.
+<strong>Construction Worker (2024)</strong><br>
+Teamwork, logistics, and on-site organization.
 </div>
 
 <div class="card">
-  Private Tutor — teaching and organization skills.
+<strong>Restaurant Employee (2023)</strong><br>
+Customer service, multitasking, and teamwork.
+</div>
+
+<div class="card">
+<strong>Sales Assistant (2019)</strong><br>
+Customer interaction and product management.
 </div>
 
 </section>
 
-<!-- PERSONAL LIFE -->
+<!-- SKILLS -->
 <section>
-<h2>Personal Interests</h2>
+<h2>Skills</h2>
 
 <div class="card">
-  I regularly go to the gym, which helps me stay disciplined and focused.
+<strong>Engineering:</strong> SolidWorks, FreeCAD
 </div>
 
 <div class="card">
-  I enjoy reading in English to improve my language skills and stay curious.
+<strong>Programming:</strong> Python, SQL, MATLAB, Scilab
 </div>
 
 <div class="card">
-  I like driving, as it gives me a sense of freedom and independence.
+<strong>Languages:</strong> English (B1), Spanish (A2)
 </div>
 
 </section>
@@ -189,6 +227,7 @@ h2 {
 <section class="contact">
 <h2>Contact</h2>
 <p>omar.abdul@ensam.eu</p>
+<p>linkedin.com/in/omarabdul94</p>
 </section>
 
 </body>
