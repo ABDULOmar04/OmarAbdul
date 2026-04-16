@@ -13,7 +13,18 @@ body {
   background: linear-gradient(180deg, #f8fafc, #eef2ff);
   color: #111827;
   line-height: 1.7;
-  overflow-x: hidden;
+}
+
+/* ================= PROGRESS BAR ================= */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #fbbf24, #1e3a8a);
+  z-index: 9999;
+  transition: width 0.1s ease;
 }
 
 /* ================= HEADER ================= */
@@ -24,7 +35,6 @@ header {
   color: white;
   border-radius: 0 0 25px 25px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeIn 1s forwards;
@@ -36,13 +46,11 @@ header img {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fbbf24;
-  margin-bottom: 15px;
 }
 
-/* TYPEWRITER (STABLE) */
 h1 {
   font-size: 40px;
-  color: #ffffff;
+  color: white;
   overflow: hidden;
   border-right: 3px solid #fbbf24;
   white-space: nowrap;
@@ -76,8 +84,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #f59e0b;
-  transform: translateY(-2px);
+  color: #fbbf24;
 }
 
 /* ================= SECTIONS ================= */
@@ -97,7 +104,7 @@ section.show {
 }
 
 h2 {
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #fbbf24;
   padding-left: 10px;
   color: #1e3a8a;
 }
@@ -114,7 +121,6 @@ h2 {
 
 .item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 /* ================= CONTACT ================= */
@@ -127,10 +133,7 @@ h2 {
 
 /* ================= ANIMATIONS ================= */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes typing {
@@ -146,10 +149,13 @@ h2 {
 
 <body>
 
+<!-- PROGRESS BAR -->
+<div id="progressBar"></div>
+
 <header>
   <img src="https://via.placeholder.com/120">
   <h1>Omar Abdul</h1>
-  <div class="subtitle">Engineering Student — Arts et Métiers Institute</div>
+  <div class="subtitle">Engineering Student — Arts et Métiers</div>
 </header>
 
 <nav>
@@ -166,7 +172,6 @@ h2 {
 
 <section id="experience">
 <h2>Experience</h2>
-
 <div class="item">Retail Sales Assistant</div>
 <div class="item">Construction Worker</div>
 <div class="item">Private Tutor</div>
@@ -174,21 +179,17 @@ h2 {
 
 <section id="projects">
 <h2>Projects</h2>
-
 <div class="item">Heat Sink Optimization (TIPE)</div>
 <div class="item">Mechanical Randomness Study</div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-
-<div class="contact">
-omar.abdul@ensam.eu
-</div>
+<div class="contact">omar.abdul@ensam.eu</div>
 </section>
 
 <script>
-/* SCROLL ANIMATION RELIABLE */
+/* ================= SCROLL REVEAL ================= */
 const sections = document.querySelectorAll("section");
 
 function reveal() {
@@ -202,6 +203,15 @@ function reveal() {
 
 window.addEventListener("scroll", reveal);
 reveal();
+
+/* ================= PROGRESS BAR ================= */
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+
+  document.getElementById("progressBar").style.width = scrolled + "%";
+});
 </script>
 
 </body>
