@@ -35,7 +35,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
   background: radial-gradient(circle at top, #1e3a8a, #0b1220);
 }
 
@@ -43,25 +42,18 @@ body {
   font-size: 60px;
   margin: 0;
   color: white;
-
-  overflow: hidden;
-  white-space: nowrap;
   border-right: 3px solid #fbbf24;
-
+  white-space: nowrap;
+  overflow: hidden;
   width: 0;
   animation: typing 2.8s steps(20,end) forwards, blink 0.7s infinite;
 }
 
-.hero p {
-  color: #cbd5e1;
-  margin-top: 10px;
-}
-
-/* ================= SECTIONS ================= */
+/* ================= SECTION BASE ================= */
 section {
-  max-width: 900px;
-  margin: auto;
   padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
   opacity: 0;
   transform: translateY(60px);
   transition: 0.8s ease;
@@ -76,53 +68,51 @@ section.show {
 h2 {
   font-size: 28px;
   color: #fbbf24;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-/* ================= TIMELINE ================= */
-.timeline {
-  border-left: 3px solid #3b82f6;
-  padding-left: 20px;
-}
-
-.step {
-  margin: 25px 0;
-  padding-left: 10px;
-  transition: 0.3s;
-}
-
-.step:hover {
-  transform: translateX(12px);
-  color: #fbbf24;
-}
-
-/* ================= PROJECT CARDS ================= */
-.cards {
+/* ================= SPLIT LAYOUT ================= */
+.split {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 120px;
 }
 
-.card {
+/* left / right blocks */
+.block {
+  width: 45%;
   background: #111827;
   padding: 25px;
-  border-radius: 16px;
-  cursor: pointer;
-
+  border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   transition: 0.4s;
   border-left: 4px solid #3b82f6;
 }
 
-.card:hover {
-  transform: scale(1.04) translateX(10px);
+.block:hover {
+  transform: scale(1.03);
   border-left: 4px solid #fbbf24;
 }
 
-/* ================= LIFE ================= */
-.life p {
-  font-size: 18px;
-  color: #cbd5e1;
+/* alternating effect */
+.split.reverse {
+  flex-direction: row-reverse;
+}
+
+/* center line */
+.line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #1e3a8a;
+  opacity: 0.4;
+}
+
+/* container */
+.wrapper {
+  position: relative;
 }
 
 /* ================= CONTACT ================= */
@@ -131,14 +121,14 @@ h2 {
   background: #111827;
   padding: 80px 20px;
   border-radius: 20px;
+  margin-top: 100px;
 }
 
 .contact p {
   color: #fbbf24;
-  font-size: 18px;
 }
 
-/* ================= ANIMATIONS ================= */
+/* ================= ANIM ================= */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -148,54 +138,97 @@ h2 {
   50% { border-color: transparent; }
 }
 
+/* responsive */
+@media (max-width: 800px) {
+  .split, .split.reverse {
+    flex-direction: column;
+  }
+
+  .block {
+    width: 100%;
+  }
+
+  .line {
+    display: none;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- PROGRESS BAR -->
 <div id="progressBar"></div>
 
-<!-- HERO -->
 <header class="hero">
   <h1>Omar Abdul</h1>
   <p>Engineering student — Physics, mechanics & systems thinking</p>
 </header>
 
-<!-- STORY -->
-<section class="story">
-  <h2>My Journey</h2>
+<section class="wrapper">
 
-  <div class="timeline">
-    <div class="step">📉 Low motivation → average grades</div>
-    <div class="step">⚡ CPGE turning point (discipline discovered)</div>
-    <div class="step">📈 Structured study habits built</div>
-    <div class="step">🎯 Clear academic direction defined</div>
+<h2>My Journey</h2>
+<div class="line"></div>
+
+<div class="split">
+  <div class="block">
+    📉 Low motivation → average performance<br>
+    At the beginning I was not fully engaged.
   </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects">
-  <h2>Projects</h2>
-
-  <div class="cards">
-    <div class="card">Heat Sink Optimization (TIPE)</div>
-    <div class="card">Mechanical Randomness System</div>
+  <div class="block">
+    ⚡ CPGE turning point<br>
+    First real discipline experience.
   </div>
+</div>
+
+<div class="split reverse">
+  <div class="block">
+    📈 Structured study habits<br>
+    Learned consistency under pressure.
+  </div>
+  <div class="block">
+    🎯 Academic direction<br>
+    Defined clear goals for future.
+  </div>
+</div>
+
 </section>
 
-<!-- PERSONAL LIFE -->
-<section class="life">
-  <h2>Beyond Engineering</h2>
-  <p>
-    Gym training, reading in English, curiosity for systems, continuous self-improvement and discipline.
-  </p>
+<section>
+<h2>Projects</h2>
+
+<div class="split">
+  <div class="block">
+    Heat Sink Optimization (TIPE)
+  </div>
+  <div class="block">
+    Thermal simulation + experimental validation
+  </div>
+</div>
+
+<div class="split reverse">
+  <div class="block">
+    Mechanical Randomness
+  </div>
+  <div class="block">
+    Deterministic system behaving like randomness
+  </div>
+</div>
+
 </section>
 
-<!-- CONTACT -->
+<section>
+<h2>Beyond Engineering</h2>
+
+<div class="block" style="margin:auto; width:60%;">
+Gym • Reading in English • Discipline • Curiosity • Self improvement
+</div>
+
+</section>
+
 <section class="contact">
-  <h2>Contact</h2>
-  <p>omar.abdul@ensam.eu</p>
+<h2>Contact</h2>
+<p>omar.abdul@ensam.eu</p>
 </section>
 
 <script>
@@ -217,8 +250,8 @@ window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-  const progress = (scrollTop / scrollHeight) * 100;
-  document.getElementById("progressBar").style.width = progress + "%";
+  document.getElementById("progressBar").style.width =
+    (scrollTop / scrollHeight) * 100 + "%";
 });
 
 </script>
