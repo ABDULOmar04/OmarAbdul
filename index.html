@@ -1,9 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Abdul | Academic Portfolio</title>
+
+<style>
 body {
   margin: 0;
   font-family: "Georgia", serif;
   background: linear-gradient(180deg, #f8fafc, #eef2ff);
   color: #111827;
   line-height: 1.7;
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
@@ -12,10 +21,10 @@ header {
   max-width: 900px;
   margin: auto;
   text-align: center;
-  border-bottom: 1px solid #e5e7eb;
   background: linear-gradient(135deg, #1e3a8a, #0f172a);
   color: white;
   border-radius: 0 0 20px 20px;
+  animation: fadeIn 0.8s ease-out;
 }
 
 header img {
@@ -45,9 +54,9 @@ nav {
   justify-content: center;
   gap: 25px;
   padding: 15px;
+  background: white;
   position: sticky;
   top: 0;
-  background: white;
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
@@ -56,9 +65,9 @@ nav a {
   text-decoration: none;
   color: #1e3a8a;
   font-size: 14px;
-  letter-spacing: 1px;
   font-weight: 600;
   transition: 0.3s;
+  letter-spacing: 1px;
 }
 
 nav a:hover {
@@ -71,44 +80,39 @@ section {
   max-width: 850px;
   margin: auto;
   padding: 60px 20px;
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* TITRES */
 h2 {
   font-size: 20px;
   border-left: 4px solid #f59e0b;
   padding-left: 10px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 1px;
   color: #1e3a8a;
 }
 
-/* TEXT */
-p {
-  font-size: 16px;
-  color: #1f2937;
-}
-
-/* EXPERIENCE ITEMS */
+/* ITEMS */
 .item {
-  margin-bottom: 20px;
   background: white;
   padding: 15px;
+  margin-bottom: 15px;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.06);
   border-left: 4px solid #1e3a8a;
-  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInItem 0.6s ease forwards;
 }
 
 .item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.01);
   border-left: 4px solid #f59e0b;
+  transition: 0.3s ease;
 }
 
 .title {
   font-weight: bold;
-  color: #111827;
 }
 
 .small {
@@ -135,3 +139,122 @@ footer {
   font-size: 12px;
   color: #6b7280;
 }
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* stagger */
+.item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.3s; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/120">
+  <h1>Omar Abdul</h1>
+  <div class="subtitle">
+    Engineering Student — Arts et Métiers Institute of Technology
+  </div>
+</header>
+
+<nav>
+  <a href="#about">ABOUT</a>
+  <a href="#experience">EXPERIENCE</a>
+  <a href="#projects">PROJECTS</a>
+  <a href="#activities">ACTIVITIES</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<section id="about">
+<h2>About</h2>
+
+<p>
+I am an engineering student based in Châlons-en-Champagne at Arts et Métiers Institute of Technology.
+My academic interests focus on physics, mechanics, and applied engineering systems.
+</p>
+
+<p>
+Through my studies and experiences, I have developed discipline, adaptability, and a strong ability to work under pressure.
+</p>
+</section>
+
+<section id="experience">
+<h2>Professional Experience</h2>
+
+<div class="item">
+<div class="title">Retail Sales Assistant</div>
+<div class="small">Customer interaction, communication, adaptability</div>
+</div>
+
+<div class="item">
+<div class="title">Construction Worker</div>
+<div class="small">Teamwork, discipline, physical endurance</div>
+</div>
+
+<div class="item">
+<div class="title">Private Tutor</div>
+<div class="small">Teaching, clarity, responsibility</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Academic Projects</h2>
+
+<div class="item">
+<div class="title">Heat Sink Optimization (TIPE)</div>
+<div class="small">
+Study of thermal dissipation in electronic systems using modeling, simulation and experiments.
+</div>
+</div>
+
+<div class="item">
+<div class="title">Mechanical Systems & Randomness</div>
+<div class="small">
+Analysis of deterministic systems that appear random due to physical complexity.
+</div>
+</div>
+</section>
+
+<section id="activities">
+<h2>Activities & Interests</h2>
+
+<p>
+Student associations, teamwork projects, intercultural exchange, gym, reading in English, continuous self-improvement.
+</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+
+<div class="contact">
+<p>Email: <b>omar.abdul@ensam.eu</b></p>
+<p>LinkedIn: <b>linkedin.com/in/omarabdul94</b></p>
+</div>
+</section>
+
+<footer>
+© 2026 Omar Abdul — Academic Portfolio
+</footer>
+
+</body>
+</html>
