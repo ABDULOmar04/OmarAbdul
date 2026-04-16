@@ -6,7 +6,6 @@
 <title>Omar Abdul | Portfolio</title>
 
 <style>
-/* ================= BASE ================= */
 body {
   margin: 0;
   font-family: "Georgia", serif;
@@ -15,7 +14,7 @@ body {
   line-height: 1.7;
 }
 
-/* ================= PROGRESS BAR ================= */
+/* PROGRESS BAR */
 #progressBar {
   position: fixed;
   top: 0;
@@ -24,47 +23,40 @@ body {
   width: 0%;
   background: linear-gradient(90deg, #fbbf24, #1e3a8a);
   z-index: 9999;
-  transition: width 0.1s ease;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header {
   padding: 80px 20px 40px;
   text-align: center;
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
   color: white;
   border-radius: 0 0 25px 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeIn 1s forwards;
 }
 
 header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid #fbbf24;
 }
 
+/* TYPING */
 h1 {
   font-size: 40px;
-  color: white;
-  overflow: hidden;
   border-right: 3px solid #fbbf24;
   white-space: nowrap;
+  overflow: hidden;
   width: 0;
-  margin: 0 auto;
-  animation: typing 2.5s steps(20, end) forwards, blink 0.7s infinite;
+  margin: 10px auto;
+  animation: typing 2.5s steps(20,end) forwards, blink 0.7s infinite;
 }
 
 .subtitle {
   color: #cbd5e1;
-  margin-top: 10px;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 nav {
   display: flex;
   justify-content: center;
@@ -80,27 +72,13 @@ nav a {
   text-decoration: none;
   color: #1e3a8a;
   font-weight: bold;
-  transition: 0.3s;
 }
 
-nav a:hover {
-  color: #fbbf24;
-}
-
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section {
   max-width: 850px;
   margin: auto;
   padding: 60px 20px;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 h2 {
@@ -109,21 +87,55 @@ h2 {
   color: #1e3a8a;
 }
 
-/* ================= CARDS ================= */
-.item {
+/* ===== PROJECT CARDS ===== */
+.projects {
+  display: grid;
+  gap: 15px;
+}
+
+.card {
   background: white;
-  padding: 15px;
-  margin-bottom: 12px;
+  padding: 18px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.item:hover {
-  transform: translateY(-6px);
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* ================= CONTACT ================= */
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  animation: pop 0.3s ease;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* CONTACT */
 .contact {
   background: #0f172a;
   color: white;
@@ -131,11 +143,7 @@ h2 {
   border-radius: 12px;
 }
 
-/* ================= ANIMATIONS ================= */
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* ANIM */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -144,12 +152,16 @@ h2 {
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- PROGRESS BAR -->
 <div id="progressBar"></div>
 
 <header>
@@ -160,27 +172,29 @@ h2 {
 
 <nav>
   <a href="#about">About</a>
-  <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
 <h2>About</h2>
-<p>Engineering student focused on physics, mechanics and applied systems.</p>
-</section>
-
-<section id="experience">
-<h2>Experience</h2>
-<div class="item">Retail Sales Assistant</div>
-<div class="item">Construction Worker</div>
-<div class="item">Private Tutor</div>
+<p>Engineering student focused on physics and mechanical systems.</p>
 </section>
 
 <section id="projects">
-<h2>Projects</h2>
-<div class="item">Heat Sink Optimization (TIPE)</div>
-<div class="item">Mechanical Randomness Study</div>
+<h2>Projects (click me)</h2>
+
+<div class="projects">
+
+<div class="card" onclick="openModal('Heat Sink Optimization', 'Study of thermal dissipation using simulation and experiments. Result: +11°C efficiency gain.')">
+Heat Sink Optimization (TIPE)
+</div>
+
+<div class="card" onclick="openModal('Mechanical Randomness', 'Study of deterministic systems creating the illusion of randomness using physics models.')">
+Mechanical Randomness Study
+</div>
+
+</div>
 </section>
 
 <section id="contact">
@@ -188,30 +202,41 @@ h2 {
 <div class="contact">omar.abdul@ensam.eu</div>
 </section>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+  </div>
+</div>
+
 <script>
-/* ================= SCROLL REVEAL ================= */
-const sections = document.querySelectorAll("section");
 
-function reveal() {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      sec.classList.add("show");
-    }
-  });
-}
-
-window.addEventListener("scroll", reveal);
-reveal();
-
-/* ================= PROGRESS BAR ================= */
+/* PROGRESS BAR */
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollTop / scrollHeight) * 100;
-
-  document.getElementById("progressBar").style.width = scrolled + "%";
+  document.getElementById("progressBar").style.width =
+    (scrollTop / scrollHeight) * 100 + "%";
 });
+
+/* MODAL */
+function openModal(title, text) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalText").innerText = text;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+/* CLOSE OUTSIDE CLICK */
+window.onclick = function(e) {
+  if (e.target.id === "modal") closeModal();
+}
+
 </script>
 
 </body>
