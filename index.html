@@ -6,16 +6,16 @@
 
 <title>Omar Abdul — Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 /* ===== BASE ===== */
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
-  background: #fdfcf9;
-  color: #1c1c1c;
+  font-family: "Source Sans 3", sans-serif;
+  background: #faf9f6;
+  color: #1f2937;
   line-height: 1.8;
 }
 
@@ -25,7 +25,7 @@ body {
   top: 0;
   left: 0;
   height: 3px;
-  background: #1e3a8a;
+  background: #1d4ed8;
   width: 0%;
   z-index: 999;
 }
@@ -35,8 +35,8 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(253,252,249,0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(250,249,246,0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   gap: 35px;
@@ -46,14 +46,14 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #555;
+  color: #6b7280;
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #1e3a8a;
+  color: #1d4ed8;
 }
 
 /* HERO */
@@ -63,19 +63,18 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
 }
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 64px;
+  font-size: 70px;
   font-weight: 600;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 /* TYPING */
 .typing {
-  border-right: 2px solid #1e3a8a;
+  border-right: 2px solid #1d4ed8;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
@@ -88,8 +87,8 @@ h1 {
 
 .subtitle {
   margin-top: 20px;
-  color: #777;
-  font-size: 16px;
+  color: #6b7280;
+  font-size: 17px;
 }
 
 /* SECTIONS */
@@ -102,23 +101,23 @@ section {
 /* TITLES */
 h2 {
   font-family: "Playfair Display", serif;
-  font-size: 36px;
+  font-size: 38px;
   margin-bottom: 40px;
 }
 
 /* CARDS */
 .card {
-  background: #ffffff;
-  border: 1px solid #eee;
+  background: white;
   border-radius: 12px;
   padding: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border: 1px solid #eee;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 /* DROPDOWN */
@@ -129,7 +128,7 @@ h2 {
 }
 
 .card.active .content {
-  max-height: 400px;
+  max-height: 500px;
 }
 
 /* IMAGE */
@@ -139,7 +138,7 @@ img {
   margin-bottom: 15px;
 }
 
-/* FADE ANIM */
+/* FADE */
 .fade {
   opacity: 0;
   transform: translateY(40px);
@@ -155,8 +154,7 @@ img {
 footer {
   text-align: center;
   padding: 50px;
-  color: #888;
-  font-size: 14px;
+  color: #9ca3af;
 }
 
 </style>
@@ -182,10 +180,9 @@ footer {
 </header>
 
 <section id="about" class="fade">
-<h2>About Me</h2>
+<h2>About</h2>
 <p>
-I am an engineering student passionate about mechanics, physics, and analytical problem-solving.
-My goal is to apply rigorous thinking to real-world engineering challenges.
+I am an engineering student specializing in mechanics and physics, with a strong interest in modeling, experimentation, and problem-solving.
 </p>
 </section>
 
@@ -194,12 +191,12 @@ My goal is to apply rigorous thinking to real-world engineering challenges.
 
 <div class="card">
 <h3>Arts et Métiers (ENSAM)</h3>
-<p>Engineering degree (2025–2028)</p>
+<p>Engineering program — 2025–2028</p>
 </div>
 
 <div class="card">
 <h3>CPGE PT / PT*</h3>
-<p>Intensive preparation in mathematics and physics</p>
+<p>Intensive scientific preparation</p>
 </div>
 
 </section>
@@ -211,7 +208,7 @@ My goal is to apply rigorous thinking to real-world engineering challenges.
 <img src="https://images.unsplash.com/photo-1581091870627-3c74b56d7f3a">
 <h3>Tensile Testing of Rope Splices</h3>
 <div class="content">
-<p>Experimental mechanical testing and analysis.</p>
+<p>Mechanical testing and experimental analysis.</p>
 </div>
 </div>
 
@@ -219,7 +216,7 @@ My goal is to apply rigorous thinking to real-world engineering challenges.
 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
 <h3>Thermal Optimization</h3>
 <div class="content">
-<p>Simulation and modeling of heat transfer.</p>
+<p>Simulation of thermal behavior and optimization.</p>
 </div>
 </div>
 
@@ -235,7 +232,7 @@ My goal is to apply rigorous thinking to real-world engineering challenges.
 
 <div class="card">
 <h3>Construction Worker</h3>
-<p>Teamwork and logistics</p>
+<p>Field work and logistics</p>
 </div>
 
 </section>
