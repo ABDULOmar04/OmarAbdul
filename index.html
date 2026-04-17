@@ -62,7 +62,6 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0.5;
 }
-body:hover .cursor { opacity: 1; }
 
 /* ── PROGRESS BAR ── */
 #progress-bar {
@@ -105,6 +104,7 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 40px;
+  align-items: center;
 }
 nav ul a {
   text-decoration: none;
@@ -116,6 +116,25 @@ nav ul a {
   transition: color 0.2s;
 }
 nav ul a:hover { color: var(--ink); }
+
+/* CV Download button in nav */
+.nav-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 2px;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500 !important;
+  transition: background 0.2s !important;
+}
+.nav-cv-btn:hover { background: #6d2d1e !important; color: #fff !important; }
+.nav-cv-btn svg { stroke: #fff; flex-shrink: 0; }
 
 /* ── HERO ── */
 #hero {
@@ -152,7 +171,6 @@ nav ul a:hover { color: var(--ink); }
 }
 .hero-photo:hover { filter: grayscale(0%); }
 
-/* Placeholder if no photo */
 .hero-photo-placeholder {
   width: 100%;
   height: 100%;
@@ -288,6 +306,29 @@ nav ul a:hover { color: var(--ink); }
   background: rgba(26,23,20,0.04);
 }
 
+/* CV hero button */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(139,58,42,0.4);
+  border-radius: 2px;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-cv:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.btn-cv svg { stroke: var(--accent); }
+
 .hero-scroll {
   position: absolute;
   bottom: 48px;
@@ -308,13 +349,6 @@ nav ul a:hover { color: var(--ink); }
   border-radius: 50%;
   background: var(--accent);
   animation: pulse 2s 1.5s ease-in-out infinite;
-}
-
-/* ── DIVIDER ── */
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--border2);
 }
 
 /* ── SECTION ── */
@@ -372,6 +406,45 @@ nav ul a:hover { color: var(--ink); }
   font-weight: 300;
 }
 .about-text p strong { color: var(--ink); font-weight: 500; }
+
+/* CV download card in about section */
+.cv-download-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(139,58,42,0.25);
+  background: var(--accent-light);
+  margin-top: 8px;
+  transition: border-color 0.2s;
+  text-decoration: none;
+}
+.cv-download-card:hover { border-color: var(--accent); }
+.cv-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cv-icon svg { stroke: #fff; }
+.cv-card-text { flex: 1; }
+.cv-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.cv-card-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+.cv-arrow { stroke: var(--accent); }
 
 .about-aside {
   display: flex;
@@ -516,6 +589,24 @@ nav ul a:hover { color: var(--ink); }
   letter-spacing: 0.06em;
 }
 
+/* Process badges for FAB project */
+.process-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.process-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(139,58,42,0.2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .project-toggle-btn {
   width: 40px;
   height: 40px;
@@ -543,13 +634,51 @@ nav ul a:hover { color: var(--ink); }
   overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.project-body.open { max-height: 700px; }
+.project-body.open { max-height: 900px; }
 
 .project-body-inner {
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 48px;
+}
+
+/* Process steps for FAB */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+}
+.process-step {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border2);
+  align-items: start;
+}
+.process-step:last-child { border-bottom: none; }
+.step-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  padding-top: 2px;
+  font-weight: 500;
+}
+.step-content { }
+.step-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.step-desc {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 .project-details ul {
@@ -733,8 +862,6 @@ nav ul a:hover { color: var(--ink); }
 .pill:last-child { border-bottom: none; }
 .pill:hover { color: var(--accent); padding-left: 6px; }
 
-/* Interests */
-.interests-section { margin-top: 0; }
 .interests-label {
   font-family: var(--mono);
   font-size: 11px;
@@ -868,6 +995,17 @@ nav ul a:hover { color: var(--ink); }
   background: rgba(255,255,255,0.05);
 }
 
+.contact-link.cv-dl {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid rgba(196,149,106,0.35);
+}
+.contact-link.cv-dl:hover {
+  border-color: var(--accent2);
+  background: rgba(196,149,106,0.08);
+}
+.contact-link.cv-dl svg { stroke: var(--accent2); }
+
 /* ── FOOTER ── */
 footer {
   background: var(--ink);
@@ -933,6 +1071,19 @@ footer {
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
+    <!--
+      ↓ Remplace "CV_Omar_Abdul.pdf" par le vrai nom de ton fichier CV
+    -->
+    <li>
+      <a href="CV_Omar_Abdul.pdf" download class="nav-cv-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        CV
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -954,6 +1105,15 @@ footer {
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects</a>
       <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <!-- Remplace "CV_Omar_Abdul.pdf" par le nom de ton fichier -->
+      <a href="CV_Omar_Abdul.pdf" download class="btn-cv">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download CV
+      </a>
     </div>
     <div class="hero-scroll">
       <div class="scroll-dot"></div>
@@ -963,9 +1123,8 @@ footer {
 
   <div class="hero-right">
     <!--
-      TO ADD YOUR PHOTO:
-      Replace the placeholder below with:
-      <img src="YOUR_PHOTO.jpg" alt="Omar Abdul" class="hero-photo">
+      Pour ajouter ta photo :
+      <img src="PHOTO.jpg" alt="Omar Abdul" class="hero-photo">
     -->
     <div class="hero-photo-placeholder">
       <div class="photo-placeholder-icon">
@@ -989,10 +1148,35 @@ footer {
         <p>I'm <strong>Omar Abdul</strong>, an engineering student at Arts et Métiers (ENSAM), one of France's top engineering schools. I joined after completing two years of intensive <em>Classes Préparatoires</em> (PT track) — a rigorous preparatory program covering engineering sciences, advanced mathematics, physics, and computer science.</p>
         <p>My approach to engineering is grounded in <strong>rigor, consistency, and a genuine curiosity</strong> for how things work — from mechanical systems and structural testing to statistical modeling and thermal simulations.</p>
         <p>Beyond engineering, I'm committed to sharing knowledge: I have been tutoring students in mathematics and physics since 2022, adapting my explanations to each learner's pace and background.</p>
+
+        <!-- CV download card -->
+        <!--
+          Remplace "CV_Omar_Abdul.pdf" par le chemin réel de ton CV.
+          Place le fichier PDF dans le même dossier que ce HTML.
+        -->
+        <a href="CV_Omar_Abdul.pdf" download class="cv-download-card">
+          <div class="cv-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="12" y1="18" x2="12" y2="12"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <div class="cv-card-text">
+            <div class="cv-card-title">Curriculum Vitae</div>
+            <div class="cv-card-sub">PDF · Omar Abdul · 2026</div>
+          </div>
+          <svg class="cv-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </a>
       </div>
       <div class="about-aside">
         <div class="stat-item">
-          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-num">5<span>+</span></div>
           <div class="stat-label">Engineering projects completed</div>
         </div>
         <div class="stat-item">
@@ -1043,11 +1227,106 @@ footer {
 
     <div class="project-list">
 
-      <!-- PROJECT 1 -->
+      <!-- PROJECT 1 — FAB IMP -->
       <div class="project-item">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-header-left">
             <span class="project-num">01</span>
+            <div class="project-title">Fab Projet FAB IMP — Multi-Process Part Design</div>
+            <div class="project-period">ENSAM · Manufacturing Project · Metrology · Additive &amp; Subtractive Manufacturing</div>
+            <div class="process-badges">
+              <span class="process-badge">Metrology</span>
+              <span class="process-badge">Additive Mfg</span>
+              <span class="process-badge">Machining</span>
+              <span class="process-badge">Materials</span>
+            </div>
+          </div>
+          <button class="project-toggle-btn" aria-label="Toggle project">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <line x1="7" y1="1" x2="7" y2="13"/>
+              <line x1="1" y1="7" x2="13" y2="7"/>
+            </svg>
+          </button>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+            <div class="project-details">
+              <p style="font-size:14px; color:var(--ink2); font-weight:300; line-height:1.85; margin-bottom:24px;">
+                Designed and manufactured a mechanical part using the full range of fabrication processes taught at Arts et Métiers — from metrology and material characterization to additive manufacturing and machining.
+              </p>
+
+              <!-- Process breakdown -->
+              <div class="process-steps">
+                <div class="process-step">
+                  <span class="step-num">01</span>
+                  <div class="step-content">
+                    <div class="step-title">Metrology &amp; Characterization</div>
+                    <div class="step-desc">Dimensional inspection and material characterization of the raw part using precision measurement instruments. Established baseline tolerances for downstream processes.</div>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span class="step-num">02</span>
+                  <div class="step-content">
+                    <div class="step-title">CAD Design &amp; Engineering Drawing</div>
+                    <div class="step-desc">Modeled the part in SolidWorks, produced fully annotated manufacturing drawings with GD&amp;T tolerances and surface finish requirements.</div>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span class="step-num">03</span>
+                  <div class="step-content">
+                    <div class="step-title">Additive Manufacturing</div>
+                    <div class="step-desc">Produced a prototype using 3D printing (FDM). Analyzed layer deposition, surface finish, and dimensional accuracy against the nominal model.</div>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span class="step-num">04</span>
+                  <div class="step-content">
+                    <div class="step-title">Subtractive Manufacturing — Machining</div>
+                    <div class="step-desc">Machined the final part on a conventional lathe and milling machine. Applied the full workshop protocol: toolpath planning, speed/feed selection, and quality control.</div>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <span class="step-num">05</span>
+                  <div class="step-content">
+                    <div class="step-title">Comparison &amp; Analysis</div>
+                    <div class="step-desc">Compared additive and subtractive outputs across dimensional accuracy, surface roughness, and mechanical properties. Drew process-selection recommendations.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tags">
+                <span class="tag">SolidWorks</span>
+                <span class="tag">Metrology</span>
+                <span class="tag">FDM / 3D Printing</span>
+                <span class="tag">Turning / Milling</span>
+                <span class="tag">GD&amp;T</span>
+                <span class="tag">Materials Science</span>
+              </div>
+            </div>
+            <div class="project-aside">
+              <span class="project-aside-label">Documents</span>
+              <!--
+                Remplace "FAB_IMP_Report.pdf" par le vrai nom de ton fichier.
+                Place le PDF dans le même dossier que ce HTML.
+              -->
+              <a href="FAB_IMP_Report.pdf" class="project-link" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                View Report (PDF)
+              </a>
+              <a href="FAB_IMP_Slides.pdf" class="project-link" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+                View Slides (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div class="project-header-left">
+            <span class="project-num">02</span>
             <div class="project-title">Tensile Testing of Rope Splices</div>
             <div class="project-period">Sept 2025 — Jan 2026 · ENSAM</div>
           </div>
@@ -1076,7 +1355,6 @@ footer {
             </div>
             <div class="project-aside">
               <span class="project-aside-label">Documents</span>
-              <!-- Replace TON_PDF.pdf with your actual file path -->
               <a href="TON_PDF.pdf" class="project-link" target="_blank">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 View Report (PDF)
@@ -1086,11 +1364,11 @@ footer {
         </div>
       </div>
 
-      <!-- PROJECT 2 -->
+      <!-- PROJECT 3 -->
       <div class="project-item">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-header-left">
-            <span class="project-num">02</span>
+            <span class="project-num">03</span>
             <div class="project-title">Thermal Optimization of Electronic Components</div>
             <div class="project-period">Sept 2024 — July 2025 · CPGE</div>
           </div>
@@ -1128,11 +1406,11 @@ footer {
         </div>
       </div>
 
-      <!-- PROJECT 3 -->
+      <!-- PROJECT 4 -->
       <div class="project-item">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-header-left">
-            <span class="project-num">03</span>
+            <span class="project-num">04</span>
             <div class="project-title">Statistical Analysis of a Mechanical Slot Machine</div>
             <div class="project-period">Sept 2023 — July 2024 · CPGE</div>
           </div>
@@ -1161,7 +1439,6 @@ footer {
             </div>
             <div class="project-aside">
               <span class="project-aside-label">Documents</span>
-              <!-- Replace TON_DIAPO.pdf with your actual file path -->
               <a href="TON_DIAPO.pdf" class="project-link" target="_blank">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 View Slides (PDF)
@@ -1171,11 +1448,11 @@ footer {
         </div>
       </div>
 
-      <!-- PROJECT 4 -->
+      <!-- PROJECT 5 -->
       <div class="project-item">
         <div class="project-header" onclick="toggleProject(this)">
           <div class="project-header-left">
-            <span class="project-num">04</span>
+            <span class="project-num">05</span>
             <div class="project-title">Yes We Code — Academic Award Winner</div>
             <div class="project-period">January 2021 — April 2021</div>
           </div>
@@ -1225,7 +1502,7 @@ footer {
 
         <div class="exp-item">
           <div>
-            <h3>Private Tutor — Mathematics & Physics</h3>
+            <h3>Private Tutor — Mathematics &amp; Physics</h3>
             <div class="date">June 2022 — Present</div>
             <p>Personalized one-on-one academic coaching, adapting explanations to each student's pace and learning style. Helped students improve their results and build long-term understanding of complex concepts.</p>
           </div>
@@ -1264,7 +1541,7 @@ footer {
 <section id="skills">
   <div class="section">
     <div class="section-label">Technical proficiency</div>
-    <div class="section-title">Skills & <em>Interests</em></div>
+    <div class="section-title">Skills &amp; <em>Interests</em></div>
 
     <div class="skills-layout">
       <div class="skill-group">
@@ -1296,7 +1573,7 @@ footer {
       </div>
     </div>
 
-    <div class="interests-section">
+    <div>
       <div class="interests-label">Interests</div>
       <div class="interests-row">
         <div class="interest-badge">Badminton</div>
@@ -1322,6 +1599,15 @@ footer {
       </a>
       <a href="https://linkedin.com/in/omarabdul94" class="contact-link linkedin" target="_blank">
         LinkedIn
+      </a>
+      <!-- Remplace "CV_Omar_Abdul.pdf" par le nom de ton fichier -->
+      <a href="CV_Omar_Abdul.pdf" download class="contact-link cv-dl">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download CV
       </a>
     </div>
   </div>
@@ -1399,7 +1685,7 @@ document.querySelectorAll('.edu-card, .exp-item, .skill-group, .project-item, .s
 
 // ── ACTIVE NAV ──
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav ul a');
+const navLinks = document.querySelectorAll('nav ul a:not(.nav-cv-btn)');
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => {
