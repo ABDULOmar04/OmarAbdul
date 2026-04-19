@@ -48,17 +48,7 @@ body {
   transition: transform 0.15s ease;
   transform: translate(-50%, -50%);
 }
-.cursor-ring {
-  position: fixed;
-  width: 32px; height: 32px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s;
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
-}
+
 
 #progress-bar {
   position: fixed;
@@ -606,7 +596,6 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
 <body>
 
 <div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <div id="progress-bar"></div>
 
 <!-- NAV -->
