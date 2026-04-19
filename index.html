@@ -120,25 +120,23 @@ nav ul a:hover { color: var(--ink); }
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding-top: 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-left {
-  padding: 80px 60px;
-  position: relative;
-}
-.hero-right {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: var(--bg2);
-  display: flex;
+  display: flex;       /* On passe en flex pour mieux contrôler */
   align-items: center;
   justify-content: center;
+  gap: 60px;           /* Espace entre ton texte et ta photo */
+  padding: 0 10%;      /* Marge de sécurité sur les côtés */
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 600px;    /* Empêche le texte de devenir trop large */
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centre la photo dans sa moitié */
+  background: none;        /* Enlève le fond gris s'il te gêne */
 }
 .hero-right::after {
   content: '';
@@ -325,9 +323,9 @@ nav ul a:hover { color: var(--ink); }
 
 /* ── SECTION ── */
 .section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 120px 40px;
+  max-width: 1200px; /* Limite la largeur pour que ce soit lisible */
+  margin: 0 auto;    /* Centre tout le bloc au milieu de la page */
+  padding: 80px 40px;
 }
 .section-label {
   font-family: var(--mono);
