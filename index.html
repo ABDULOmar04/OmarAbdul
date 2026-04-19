@@ -156,24 +156,23 @@ nav ul a:hover { color: var(--ink); }
   height: 460px;
   z-index: 1;
 }
-.photo-frame-wrap::before {
-  content: '';
-  position: absolute;
-  bottom: -18px; right: -18px;
-  width: 310px; height: 390px;
-  border: 1.5px solid rgba(139,58,42,0.22);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.photo-container {
+.photo-frame-wrap {
   position: relative;
-  width: 320px;
-  height: 420px;
-  overflow: hidden;
+  width: 360px;
+  height: 460px;
   z-index: 1;
-  clip-path: polygon(0 0, 86% 0, 100% 7%, 100% 100%, 14% 100%, 0 93%);
-  background: var(--bg2);
+  display: flex;       /* AJOUTÉ */
+  align-items: center; /* AJOUTÉ */
+  justify-content: center; /* AJOUTÉ */
+}
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%; /* MODIFIÉ (pour remonter ton visage) */
+  display: block;
+  filter: contrast(1.04) saturate(0.95);
+  transition: transform 0.6s ease;
 }
 
 /* Clean photo — background already removed, no blend mode needed */
