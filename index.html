@@ -120,23 +120,25 @@ nav ul a:hover { color: var(--ink); }
 /* ── HERO ── */
 #hero {
   min-height: 100vh;
-  display: flex;       /* On passe en flex pour mieux contrôler */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  padding: 80px 60px;
+  position: relative;
+}
+.hero-right {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg2);
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;           /* Espace entre ton texte et ta photo */
-  padding: 0 10%;      /* Marge de sécurité sur les côtés */
-}
-
-.hero-left {
-  flex: 1;
-  max-width: 600px;    /* Empêche le texte de devenir trop large */
-}
-
-.hero-right {
-  flex: 1;
-  display: flex;
-  justify-content: center; /* Centre la photo dans sa moitié */
-  background: none;        /* Enlève le fond gris s'il te gêne */
 }
 .hero-right::after {
   content: '';
@@ -154,23 +156,24 @@ nav ul a:hover { color: var(--ink); }
   height: 460px;
   z-index: 1;
 }
-.photo-frame-wrap {
-  position: relative;
-  width: 360px;
-  height: 460px;
-  z-index: 1;
-  display: flex;       /* AJOUTÉ */
-  align-items: center; /* AJOUTÉ */
-  justify-content: center; /* AJOUTÉ */
+.photo-frame-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: -18px; right: -18px;
+  width: 310px; height: 390px;
+  border: 1.5px solid rgba(139,58,42,0.22);
+  z-index: 0;
+  pointer-events: none;
 }
-.photo-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 15%; /* MODIFIÉ (pour remonter ton visage) */
-  display: block;
-  filter: contrast(1.04) saturate(0.95);
-  transition: transform 0.6s ease;
+
+.photo-container {
+  position: relative;
+  width: 320px;
+  height: 420px;
+  overflow: hidden;
+  z-index: 1;
+  clip-path: polygon(0 0, 86% 0, 100% 7%, 100% 100%, 14% 100%, 0 93%);
+  background: var(--bg2);
 }
 
 /* Clean photo — background already removed, no blend mode needed */
@@ -323,9 +326,9 @@ nav ul a:hover { color: var(--ink); }
 
 /* ── SECTION ── */
 .section {
-  max-width: 1200px; /* Limite la largeur pour que ce soit lisible */
-  margin: 0 auto;    /* Centre tout le bloc au milieu de la page */
-  padding: 80px 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 120px 40px;
 }
 .section-label {
   font-family: var(--mono);
@@ -659,7 +662,7 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
     <h1 class="hero-name">Omar<br><em>Abdul</em></h1>
     <p class="hero-subtitle">Mechanical Engineer — ENSAM</p>
     <p class="hero-desc">
-      Engineering student at Arts et Métiers, one of France's leading schools. Passionate about <strong>mechanical systems</strong>, <strong>thermal simulation</strong>, and <strong>data-driven engineering</strong>.
+      Engineering student at Arts et Métiers, one of France's leading <em>grandes écoles</em>. Passionate about <strong>mechanical systems</strong>, <strong>thermal simulation</strong>, and <strong>data-driven engineering</strong>.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects</a>
@@ -672,12 +675,19 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
   </div>
 
   <div class="hero-right">
-  <div class="photo-frame-wrap">
-    <div class="photo-container">
-      <img src="photocv1.png" alt="Omar Abdul — Arts et Métiers Institute of Technology" />
+    <div class="photo-frame-wrap">
+      <div class="photo-container">
+        <img src="photocv1.png" alt="Omar Abdul — Mechanical Engineering Student at ENSAM" />
+      </div>
+      <div class="photo-corner photo-corner--tl"></div>
+      <div class="photo-corner photo-corner--br"></div>
+      <div class="photo-accent-line"></div>
+      <div class="photo-accent-dot"></div>
+      <span class="photo-label">ENSAM · Paris · 2026</span>
     </div>
   </div>
-</div>
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section">
@@ -745,7 +755,7 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
     <div class="edu-grid">
       <div class="edu-card">
         <div class="edu-year">2025 — 2028</div>
-        <h3>Arts et Métiers (ENSAM) — National Graduate School of Engineering</h3>
+        <h3>École Nationale Supérieure des Arts et Métiers</h3>
         <p>Engineering degree in mechanical engineering, materials science, design, and project management. One of France's most selective schools, recognized internationally for excellence in applied engineering sciences. Graduate-level coursework from year one — equivalent to a U.S. master's preparation track.</p>
       </div>
       <div class="edu-card">
@@ -1114,6 +1124,10 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
           Cooking &amp; Culinary Creativity
         </div>
         <div class="interest-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          Engineering Documentaries
+        </div>
+        <div class="interest-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           Discovering Other Cultures
         </div>
@@ -1171,7 +1185,7 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
       <div class="whyme-card">
         <div class="whyme-card-num">01 — Formation</div>
         <h4>CPGE-trained rigour</h4>
-        <p>France's CPGE are among the most intensive undergraduate programs in the world — two years of full-time advanced mathematics, physics, and engineering sciences at a pace that has no equivalent in most systems. This is not just a credential; it is a way of thinking: systematic, precise, and built for hard problems.</p>
+        <p>France's Classes Préparatoires are among the most intensive undergraduate programs in the world — two years of full-time advanced mathematics, physics, and engineering sciences at a pace that has no equivalent in most systems. This is not just a credential; it is a way of thinking: systematic, precise, and built for hard problems.</p>
       </div>
       <div class="whyme-card">
         <div class="whyme-card-num">02 — Approach</div>
@@ -1204,7 +1218,7 @@ button.project-link { background: transparent; border: 1px solid rgba(139,58,42,
   </div>
 </section>
 
-<footer>© 2026 Omar Abdul — Engineering Portfolio · ENSAM</footer>
+<footer>© 2026 Omar Abdul — Engineering Portfolio · ENSAM Paris</footer>
 
 <!-- PDF PREVIEW MODAL -->
 <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePDFModal(event)">
